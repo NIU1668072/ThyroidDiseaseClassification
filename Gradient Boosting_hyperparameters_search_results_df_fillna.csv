@@ -1,0 +1,11 @@
+Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+Gradient Boosting,OVR,0.9192221861872557,1423.0624482631683,"{'estimator__learning_rate': 0.1, 'estimator__loss': 'exponential', 'estimator__max_depth': 7, 'estimator__max_features': 'log2', 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 2, 'estimator__n_estimators': 200, 'estimator__random_state': 42}","OneVsRestClassifier(estimator=GradientBoostingClassifier(loss='exponential',
+                                                         max_depth=7,
+                                                         max_features='log2',
+                                                         n_estimators=200,
+                                                         random_state=42))"
+Gradient Boosting,OVO,0.9175511444484117,1423.0624482631683,"{'estimator__learning_rate': 0.1, 'estimator__loss': 'exponential', 'estimator__max_depth': 7, 'estimator__max_features': 'sqrt', 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 2, 'estimator__n_estimators': 200, 'estimator__random_state': 42}","OneVsOneClassifier(estimator=GradientBoostingClassifier(loss='exponential',
+                                                        max_depth=7,
+                                                        max_features='sqrt',
+                                                        n_estimators=200,
+                                                        random_state=42))"

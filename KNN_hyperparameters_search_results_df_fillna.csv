@@ -1,0 +1,7 @@
+Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+KNN,OVR,0.7018292488293898,653.478741645813,"{'estimator__algorithm': 'auto', 'estimator__leaf_size': 30, 'estimator__metric': 'manhattan', 'estimator__n_neighbors': 3, 'estimator__p': 1, 'estimator__weights': 'distance'}","OneVsRestClassifier(estimator=KNeighborsClassifier(metric='manhattan',
+                                                   n_neighbors=3, p=1,
+                                                   weights='distance'))"
+KNN,OVO,0.7026565580463994,653.478741645813,"{'estimator__algorithm': 'kd_tree', 'estimator__leaf_size': 30, 'estimator__metric': 'chebyshev', 'estimator__n_neighbors': 5, 'estimator__p': 1, 'estimator__weights': 'distance'}","OneVsOneClassifier(estimator=KNeighborsClassifier(algorithm='kd_tree',
+                                                  metric='chebyshev', p=1,
+                                                  weights='distance'))"

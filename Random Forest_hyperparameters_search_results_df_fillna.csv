@@ -1,0 +1,9 @@
+Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+Random Forest,OVR,0.9221991754866836,1649.2567563056946,"{'estimator__class_weight': 'balanced', 'estimator__criterion': 'entropy', 'estimator__max_depth': None, 'estimator__max_features': None, 'estimator__min_samples_leaf': 2, 'estimator__min_samples_split': 2, 'estimator__random_state': 42}","OneVsRestClassifier(estimator=RandomForestClassifier(class_weight='balanced',
+                                                     criterion='entropy',
+                                                     max_features=None,
+                                                     min_samples_leaf=2,
+                                                     random_state=42))"
+Random Forest,OVO,0.9204497592561207,1649.2567563056946,"{'estimator__class_weight': None, 'estimator__criterion': 'gini', 'estimator__max_depth': None, 'estimator__max_features': None, 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 5, 'estimator__random_state': 42}","OneVsOneClassifier(estimator=RandomForestClassifier(max_features=None,
+                                                    min_samples_split=5,
+                                                    random_state=42))"
