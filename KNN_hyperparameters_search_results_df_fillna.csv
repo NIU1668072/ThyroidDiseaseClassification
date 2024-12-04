@@ -1,6 +1,7 @@
 Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
-KNN,OVR,0.7008306212541353,549.3895955085754,"{'estimator__algorithm': 'auto', 'estimator__leaf_size': 30, 'estimator__metric': 'manhattan', 'estimator__n_neighbors': 5, 'estimator__p': 1, 'estimator__weights': 'distance'}","OneVsRestClassifier(estimator=KNeighborsClassifier(metric='manhattan', p=1,
-                                                   weights='distance'))"
-KNN,OVO,0.7050073596086933,549.3895955085754,"{'estimator__algorithm': 'kd_tree', 'estimator__leaf_size': 30, 'estimator__metric': 'chebyshev', 'estimator__n_neighbors': 3, 'estimator__p': 1, 'estimator__weights': 'uniform'}","OneVsOneClassifier(estimator=KNeighborsClassifier(algorithm='kd_tree',
+KNN,OVR,0.7082804154285516,715.3442759513855,"{'estimator__algorithm': 'kd_tree', 'estimator__leaf_size': 30, 'estimator__metric': 'chebyshev', 'estimator__n_neighbors': 3, 'estimator__p': 1, 'estimator__weights': 'uniform'}","OneVsRestClassifier(estimator=KNeighborsClassifier(algorithm='kd_tree',
+                                                   metric='chebyshev',
+                                                   n_neighbors=3, p=1))"
+KNN,OVO,0.7079970358783386,715.3442759513855,"{'estimator__algorithm': 'kd_tree', 'estimator__leaf_size': 30, 'estimator__metric': 'chebyshev', 'estimator__n_neighbors': 3, 'estimator__p': 1, 'estimator__weights': 'uniform'}","OneVsOneClassifier(estimator=KNeighborsClassifier(algorithm='kd_tree',
                                                   metric='chebyshev',
                                                   n_neighbors=3, p=1))"
