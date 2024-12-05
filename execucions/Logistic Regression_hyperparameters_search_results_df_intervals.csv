@@ -1,0 +1,7 @@
+Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+Logistic Regression,OVR,0.8522084789380937,15.557572841644287,"{'estimator__C': 100.0, 'estimator__penalty': 'l1', 'estimator__random_state': 20, 'estimator__solver': 'liblinear'}","OneVsRestClassifier(estimator=LogisticRegression(C=100.0, penalty='l1',
+                                                 random_state=20,
+                                                 solver='liblinear'))"
+Logistic Regression,OVO,0.8611720103598193,15.557572841644287,"{'estimator__C': 100.0, 'estimator__penalty': 'l1', 'estimator__random_state': 20, 'estimator__solver': 'liblinear'}","OneVsOneClassifier(estimator=LogisticRegression(C=100.0, penalty='l1',
+                                                random_state=20,
+                                                solver='liblinear'))"

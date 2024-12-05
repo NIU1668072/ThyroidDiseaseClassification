@@ -1,7 +1,0 @@
-Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
-Decision Tree,OVR,0.8738057338243671,46.71366882324219,"{'estimator__criterion': 'gini', 'estimator__max_depth': 7, 'estimator__max_features': None, 'estimator__min_samples_leaf': 5, 'estimator__min_samples_split': 2, 'estimator__random_state': 20}","OneVsRestClassifier(estimator=DecisionTreeClassifier(max_depth=7,
-                                                     min_samples_leaf=5,
-                                                     random_state=20))"
-Decision Tree,OVO,0.8673975262904147,46.71366882324219,"{'estimator__criterion': 'gini', 'estimator__max_depth': 10, 'estimator__max_features': None, 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 5, 'estimator__random_state': 20}","OneVsOneClassifier(estimator=DecisionTreeClassifier(max_depth=10,
-                                                    min_samples_split=5,
-                                                    random_state=20))"
