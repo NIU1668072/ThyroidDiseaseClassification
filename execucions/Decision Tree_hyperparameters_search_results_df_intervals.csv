@@ -1,7 +1,7 @@
 Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
-Decision Tree,OVR,0.879762275218449,42.98810577392578,"{'estimator__criterion': 'gini', 'estimator__max_depth': 10, 'estimator__max_features': None, 'estimator__min_samples_leaf': 5, 'estimator__min_samples_split': 2, 'estimator__random_state': 20}","OneVsRestClassifier(estimator=DecisionTreeClassifier(max_depth=10,
-                                                     min_samples_leaf=5,
+Decision Tree,OVR,0.8801212852388938,31.376283884048462,"{'estimator__criterion': 'gini', 'estimator__max_depth': 10, 'estimator__max_features': None, 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 10, 'estimator__random_state': 20}","OneVsRestClassifier(estimator=DecisionTreeClassifier(max_depth=10,
+                                                     min_samples_split=10,
                                                      random_state=20))"
-Decision Tree,OVO,0.8762779872719042,42.98810577392578,"{'estimator__criterion': 'gini', 'estimator__max_depth': 10, 'estimator__max_features': None, 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 10, 'estimator__random_state': 20}","OneVsOneClassifier(estimator=DecisionTreeClassifier(max_depth=10,
+Decision Tree,OVO,0.8755388711486743,31.376283884048462,"{'estimator__criterion': 'gini', 'estimator__max_depth': 10, 'estimator__max_features': None, 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 10, 'estimator__random_state': 20}","OneVsOneClassifier(estimator=DecisionTreeClassifier(max_depth=10,
                                                     min_samples_split=10,
                                                     random_state=20))"
