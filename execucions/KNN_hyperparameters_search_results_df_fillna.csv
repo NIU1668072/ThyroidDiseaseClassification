@@ -1,2 +1,2 @@
 Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
-KNN,0.7566346356261067,161.4631540775299,"{'algorithm': 'auto', 'leaf_size': 30, 'metric': 'euclidean', 'n_neighbors': 3, 'p': 1, 'weights': 'distance'}","KNeighborsClassifier(metric='euclidean', n_neighbors=3, p=1, weights='distance')"
+KNN,0.7550966999553694,162.3084626197815,"{'algorithm': 'auto', 'leaf_size': 30, 'metric': 'euclidean', 'n_neighbors': 3, 'p': 1, 'weights': 'distance'}","KNeighborsClassifier(metric='euclidean', n_neighbors=3, p=1, weights='distance')"
