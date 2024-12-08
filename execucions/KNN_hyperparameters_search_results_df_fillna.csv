@@ -1,7 +1,2 @@
-Classifier,Strategy,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
-KNN,OVR,0.7652922751769294,1005.3980963230133,"{'estimator__algorithm': 'auto', 'estimator__leaf_size': 30, 'estimator__metric': 'euclidean', 'estimator__n_neighbors': 3, 'estimator__p': 1, 'estimator__weights': 'distance'}","OneVsRestClassifier(estimator=KNeighborsClassifier(metric='euclidean',
-                                                   n_neighbors=3, p=1,
-                                                   weights='distance'))"
-KNN,OVO,0.7647832576129359,1005.3980963230133,"{'estimator__algorithm': 'auto', 'estimator__leaf_size': 30, 'estimator__metric': 'euclidean', 'estimator__n_neighbors': 3, 'estimator__p': 1, 'estimator__weights': 'distance'}","OneVsOneClassifier(estimator=KNeighborsClassifier(metric='euclidean',
-                                                  n_neighbors=3, p=1,
-                                                  weights='distance'))"
+Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+KNN,0.7566346356261067,161.4631540775299,"{'algorithm': 'auto', 'leaf_size': 30, 'metric': 'euclidean', 'n_neighbors': 3, 'p': 1, 'weights': 'distance'}","KNeighborsClassifier(metric='euclidean', n_neighbors=3, p=1, weights='distance')"

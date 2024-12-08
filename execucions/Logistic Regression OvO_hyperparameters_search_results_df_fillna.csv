@@ -1,0 +1,2 @@
+Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+Logistic Regression OvO,0.7234335873519762,5.407567977905273,"{'estimator__C': 100.0, 'estimator__penalty': 'l2', 'estimator__random_state': 20, 'estimator__solver': 'lbfgs'}","OneVsOneClassifier(estimator=LogisticRegression(C=100.0, random_state=20))"
