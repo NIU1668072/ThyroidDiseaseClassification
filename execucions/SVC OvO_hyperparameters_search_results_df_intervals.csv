@@ -1,0 +1,2 @@
+Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+SVC OvO,0.8768039885894405,37.2933189868927,"{'estimator__C': 2.0, 'estimator__gamma': 'auto', 'estimator__kernel': 'rbf', 'estimator__random_state': 20, 'estimator__shrinking': True}","OneVsOneClassifier(estimator=SVC(C=2.0, gamma='auto', random_state=20))"
