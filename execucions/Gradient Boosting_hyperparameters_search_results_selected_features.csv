@@ -1,3 +1,0 @@
-Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
-Gradient Boosting,0.8882597808762138,780.5449726581573,"{'learning_rate': 0.1, 'loss': 'log_loss', 'max_depth': 5, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 20}","GradientBoostingClassifier(max_depth=5, max_features='sqrt', min_samples_leaf=5,
-                           random_state=20)"

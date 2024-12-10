@@ -1,2 +1,0 @@
-Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
-SVC OvR,0.6245390267192616,47.365511655807495,"{'estimator__C': 4.0, 'estimator__gamma': 'auto', 'estimator__kernel': 'rbf', 'estimator__random_state': 20, 'estimator__shrinking': True}","OneVsRestClassifier(estimator=SVC(C=4.0, gamma='auto', random_state=20))"

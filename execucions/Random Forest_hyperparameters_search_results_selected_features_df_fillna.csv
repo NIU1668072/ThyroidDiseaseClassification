@@ -1,0 +1,4 @@
+Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+Random Forest,0.9092270326319918,332.57664799690247,"{'class_weight': 'balanced', 'criterion': 'entropy', 'max_depth': 10, 'max_features': 2, 'min_samples_leaf': 2, 'min_samples_split': 5, 'random_state': 20}","RandomForestClassifier(class_weight='balanced', criterion='entropy',
+                       max_depth=10, max_features=2, min_samples_leaf=2,
+                       min_samples_split=5, random_state=20)"

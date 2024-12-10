@@ -41,7 +41,6 @@
 \institution{Universitat Autònoma de Barcelona}
 \footinfo{Class Project}
 \theday{Decembre 11, 2024}
-\leadauthor{Group XX} 		%% TODO: Set your group ID here
 \course{Aprenentatge Computacional}
 
 %----------------------------------------------------------
@@ -89,11 +88,31 @@
 
     Les dades contenen NaNs en 7 variables diferents: sex, TSH, T3, TT4, T4U, FTI i TBG. Les 6 últimes de la llista, que indiquen els nivells de diferents hormones, tenen relació amb una altra variable (cadascuna en té una de diferent), que diu si s'ha mesurat o no. Si indica que no s'ha mesurat, la variable que analitzem té un NaN. Més endavant veurem dues maneres de tractar-los.
 
-    La figura 1 mostra la correlació entre variables que no són les mesures de les hormones ni la indicació de si s'ha mesurat o no. També s'ha eliminat les files on la variable sexe té un NaN, un 3.3\% de les dades. Es pot apreciar que la variable target no té massa correlació amb la resta de variables, la qual cosa no és massa bo. Veurem si té més correlació amb les variables eliminades per a fer la matriu.
+    La figura \ref{fig:figure1} mostra la correlació entre variables que no són les mesures de les hormones ni la indicació de si s'ha mesurat o no. També s'ha eliminat les files on la variable sexe té un NaN, un 3.3\% de les dades. Es pot apreciar que la variable target no té massa correlació amb la resta de variables, la qual cosa no és massa bo. Veurem si té més correlació amb les variables eliminades per a fer la matriu.
 
-    La figura 2 ens mostra com es distribueix els diagnòstic ens funció de l'edat i el sexe. A simple vista no es veu que tingui cap mena de relació.
+    \begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\columnwidth]{correlation_matrix_atributs_no_mesures.png}
+		\caption{Matriu de correlació 1.}
+		\label{fig:figure1}
+	\end{figure}
+
+    La figura \ref{fig:figure2} ens mostra com es distribueix els diagnòstic ens funció de l'edat i el sexe. A simple vista no es veu que tingui cap mena de relació.
+
+    \begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\columnwidth]{relacio_edat_sexe_target.pdf}
+		\caption{Relació entre l'edat, el sexe i el target.}
+		\label{fig:figure2}
+	\end{figure}
 
     La figura 3 ens mostra les distribucions dels diagnòstics en funció de la font de referència. Aquesta gràfica sí que és més interessant, ja que hi ha dues fonts que mai diagnostiquen com a hipertiroidisme, i una, 'WEST', d'aquestes dues tampoc ho fa amb el hipotiroidisme, és a dir, diu que tothom està sa. Això passa en part perquè només hi ha 3 dades amb aquesta font.
+    \begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\columnwidth]{proporcio_referral_source_target.pdf}
+		\caption{Relació entre referral source i el target.}
+		\label{fig:figure3}
+	\end{figure}
 
 \section{Preprocessing}
 
@@ -113,225 +132,157 @@
     Com he comentat anteriorment, per a cada indicador hi ha dues variables: una que indica si s'ha mesurat o no i l'altres que dona la mesura si l'altre és positiva o té un NaN si l'altre és negativa. No hi ha cap NaN que en files on sí que s'hagi mesurat, per això he eliminat les columnes que indiquen si s'ha mesurat o no. Com que si mirem totes les files que tenen un NaN en alguna de les sis columnes em quedaria sense dades, no les puc eliminar, les he d'omplir. Ho he provat de dues maneres diferents.
 
     \subsubsection{Canviar els Nans per -1}
-    Aquesta estratègia pot arribar a ser útil en models no massa simples, no pot funcionar amb una regressió logística, per exemple, ja que intentaria predir amb aquest valor de la mateixa manera que amb qualsevol altre. Un altre problema que pot portar és que no tots els indicadors tenen la mateixa escala, és a dir, no és el mateix per un indicador que pot pendre valors entre 0 i 10 que per una altra que pot prendre valors entre 0 i 1000. L'escala de les dades també pot ser un problema per un altre motiu: al tenir escales diferents per a les variables, pot ser que afecti als paràmetres de manera que no només tinguin en compte la importància. Per això el que vaig fer va ser dividir cada indicador per el valor màxim que està considerat com a sa, d'aquesta manera tot quedava a escales similars. A més a més, el -1 ara és prou petit (gran negativament) com per a separar-se de les mostres.
+    Aquesta estratègia pot arribar a ser útil en models no massa simples, no pot funcionar amb una regressió logística, per exemple, ja que intentaria predir amb aquest valor de la mateixa manera que amb qualsevol altre. Un altre problema que pot portar és que no tots els indicadors tenen la mateixa escala, és a dir, no és el mateix per un indicador que pot pendre valors entre 0 i 10 que per una altra que pot prendre valors entre 0 i 1000. L'escala de les dades també pot ser un problema per un altre motiu: al tenir escales diferents per a les variables, pot ser que afecti als paràmetres de manera que no només tinguin en compte la importància. Per això el que vaig fer va ser dividir cada indicador per el valor màxim que està considerat com a sa, d'aquesta manera tot quedava a escales similars. A més a més, el -1 ara és prou petit (gran negativament) com per a separar-se de les mostres. La figura \ref{fig:figure4} mostra la matriu de correlació entre aquestes variables i el target
+    \begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\columnwidth]{correlation_matrix_atributs_df_fillna.pdf}
+		\caption{Matriu de correlació entre les mesures d'indicadors.}
+		\label{fig:figure4}
+	\end{figure}
 
     Ara només l'edat pren nombres molt grans en comparació a la resta. Com que només hi ha edats entre 1 i 100 anys, la vaig dividir entre 100 per a tenir-les amb un rang entre 0 i 1 a una escala similar a les altres variables.
 
     \subsubsection{Discretitzar els indicadors}
     La segona opció va ser separar els valors en intervals, de manera que si hi havia una mesura feta la fila tindria un 1 en un dels intervals i un 0 en els altres, i si, en canvi, hi hagués un NaN, tots els intervals tindrien un 0. La opció final que he triat ha sigut fer 3 intervals, un pels que tenen un valor baix, un pels que tenen un valor normal i un últim pels que tenen un valor alt. Els llindars per a determinar a cada interval pertany cada pacient els he buscat. He trobat els següents:
-    TODO: posar intervals
+    \begin{itemize}
+        \item TSH: 0.26, 5.6
+        \item T3: 1.8, 4.6
+        \item TT4: 60, 150
+        \item T4U: 0.7, 1.3
+        \item FTI: 60, 150
+        \item TBG: 13, 39
+    \end{itemize}
 
     Vull destacar que també vaig provar de separar-ho en 6 intervals, separar cadascun dels 3 anteriors en dos. Els resultats obtinguts eren lleugerament inferiors, així que ho vaig descartar. Una de les causes podria ser que aquests nous llindars els vaig posar de manera arbitrària, ja que no hi havia cap criteri oficial.
 
-    Amb aquesta manera de tenir en compte els NaNs, l'única variable que ara no és binària és l'edat. Així doncs, també la vaig discretitzar en 6 intervals. Ara doncs, totes les variables són binàries
-    
+    Amb aquesta manera de tenir en compte els NaNs, l'única variable que ara no és binària és l'edat. Així doncs, també la vaig discretitzar en 6 intervals. Ara doncs, totes les variables són binàries.
 
-    \LaTeX is based on the idea of defining commands (or macros) that control the presentation of the text on a document. As a matter of fact, \LaTeX ignores whitespace except for double newlines (pressing intro twice), which is used to delimit paragraphs. Commands are usually preceeded by a backslash (\\) and have a number of arguments, if any, between braces (\{ and \}). You can set a \textbf{bold} or an \textit{italic} typeface using the \verb|\textbf{.}| and \verb|\textit{.}| commands. You can also {\tiny change the size of the font for a scope}. You can change {\color{red} text color} using the \verb|\color{col}| command. 
-
-    Nevertheless, you should mostly refrain from formatting text explicitly. \LaTeX provides commands for recurring types of  text modifications with some batteries included. For instance, if you want to divide your text in chunks under prominent titles you can use the \verb|\section{.}|, \verb|\subsection{.}|, \verb|\subsubsection{.}| ... etc commands, which will handle everything for you. These titles will automatically appear in the table of contents, they will be properly numbered in the order of appearance, etc. If you are writing a book, you can also use the \verb|\part{.}| and \verb|\chapter{.}| commands for this.
-
-    Many \LaTeX constructs are built around the \verb|\begin{environment}| and \verb|\end{environment}| commands. You write some text between these two commands that is to be formatted according to the rules of the given environment. With this, you can write
-
-    \begin{itemize}
-        \item Bullet point lists (environment itemize)
-    \end{itemize}
-
-    \begin{enumerate}
-        \item Enumerations (environment enumerate)
-    \end{enumerate}
-
-    \begin{info}
-        ... or some custom stuff as well. The possibilities are quite endless, really.
-    \end{info}
-
-    You can edit \LaTeX in any text editor of your choice. I suggest that you try \href{https://www.overleaf.com/}{Overleaf} first, because the editing experience is very simple and very close to that of a shared Google Docs. These days they have gotten quite stingy however, so I suggest using VS Code with the \LaTeX Workshop extension instead. If you need to share the document, just put it in a Git repository. There are a myriad alternatives, so go out there and try what works for you.
-		
-\section{Figures and tables} \label{sec:table}
-
-    \subsection{Figures}
-		
-	Fig. \ref{fig:figure} shows an example figure. Figures can be referenced using \verb|\ref{ident}|, where \texttt{name} is a previously-defined \verb|\label{name}| for any object in the document. You can actually also do this with sections (Section \ref{sec:table}) or equations or other types of objects that will be seen below.
-		
-	\begin{figure}[H]
+    La figura \ref{fig:figure5} mostra la correlació entre les noves variables i el target
+    \begin{figure}[H]
 		\centering
-		\includegraphics[width=0.75\columnwidth]{Example.pdf}
-		\caption{Example figure obtained from PGFPlots \cite{PFGPlots}.}
-		\label{fig:figure}
+		\includegraphics[width=0.75\columnwidth]{correlation_matrix_atributs_df_intervals.pdf}
+		\caption{Matriu de correlació entre les variables d'intervals.}
+		\label{fig:figure5}
 	\end{figure}
-		
-        Fig. \ref{fig:examplefloat} shows an example of two figures that cover the width of the page. It can be placed at the top or bottom of the page. The space between the figures can also be changed using the \verb|\hspace{Xpt}| command.
-		
-        \begin{figure*}[tp] % t for position at the top of the current page; b for position at the bottom; p for new page
+
+    A partir d'aquí aniré distingint entre les dues opcions d'omplir els NaNs.
+
+    Com que ja he acabat amb el tractament de les variables, a partir d'ara separaré un 10\% de les dades per a fer el test final. L'altre 90\% em servirà per a fer els entrenaments i les cerques d'hiperparàmetres.
+
+    \subsection{PCA}
+    En aquest punt em va sorgir el dubte de si tenia moltes variables, i si això em podria causar overfitting. Per això vaig provar de fer una primera validació creuada i vaig fer un entrenament amb un gradient boosting amb els paràmetres per defecte. Els resultats donen una aproximació del resultat real, és a dir, pot ser que aquest split sigui molt bo i els resultats siguin una mica superiors, però també pot ser dolent i donar ser una mica inferior.
+    La metrica està explicada més endavant. Vaig obtenir el següent:
+    \begin{itemize}
+        \item Omplir amb -1
+        \item \begin{itemize}
+            \item Train: 0.97
+            \item Validació: 0.90
+        \end{itemize}
+        \item Intervals
+        \item \begin{itemize}
+            \item Train: 0.91
+            \item Validació: 0.87
+        \end{itemize}
+    \end{itemize}
+    Com que els resultats de la validació no són molt inferiors al dels train no considero que hi hagi overfitting. Tot i això vaig voler provar de fer un PCA, per veure si amb una dimensionalitat molt més baixa es també es podria fer i l'entrenament seria menys costós.
+
+    En fer les representacions no es semblan gaire separables i si fem un entrenament, el rendiment és inferior a 0.7 per les dues opcions.
+    Les figures \ref{fig:figure6} i \ref{fig:figure7} mostren els dos PCA.
+    \begin{figure}[H]
 		\centering
-		  \begin{subfigure}[b]{0.38\linewidth} % Fig (a)
-			\includegraphics[width=\linewidth]{Example2.pdf}
-			\caption{Example left figure.}
-			\label{fig:figa}
-		\end{subfigure}
-			\hspace{20pt}   % Space between the figures
-		\begin{subfigure}[b]{0.375\linewidth} % Fig (b)
-			\includegraphics[width=\linewidth]{Example3.pdf}
-			\caption{Example right figure.}
-			\label{fig:figb}
-		\end{subfigure}
-		\caption{Example figure that covers the width of the page obtained from PGFPlots \cite{PFGPlots}.}
-		\label{fig:examplefloat}
-	\end{figure*}
-
-    \begin{info}
-    	Figures in \LaTeX are known to be quite anarchic. You should always wait until the very end to place them well into the document. In any case, you should always reference the Figure and provide a Caption so that it can be contextualised even when it lies far away from the text that accompanies it.
-    \end{info}
-
-    \begin{info}
-    	Avoid raster graphics (jpeg, png) for figures if you can. Always use vectorial formats for plots and diagrams. The preferred formats for vectorial images are SVGs converted to Encapsulated Post-Script (.eps, you can use Inkscape to perform this conversion) or PDF files. Regardless of the image format you are using, generate reasonably high-resolution files (the usual is 300dpi, which means 300 pixels per squared inch). \textbf{Keep in mind that Matplotlib can be configured to generate plots with these settings.}
-    \end{info}
-
-    \subsection{Tables}
-	
-        Table \ref{tab:table} shows an example table. The \verb|\tabletext{}| is used to add notes to tables easily. 
-
-        \begin{info}
-        	This template uses the \texttt{booktabs} package by default. This package makes typesetting nice tables easier, but it imposes some general design guidelines. The most prominent is the distinction between middle and edge rules (horizontal lines) and the discouragement of vertical lines.
-        \end{info}
-
-        \begin{info}
-        	You should \textbf{always} avoid typesetting tables by hand. Use tools such as \href{https://www.tablesgenerator.com/}{this one} to spare yourself some unnecessary pain.
-        \end{info}
-		
-	\begin{table}[H]
+		\includegraphics[width=0.75\columnwidth]{PCA_df_fillna.pdf}
+		\caption{PCA omplint amb -1.}
+		\label{fig:figure6}
+	\end{figure}\begin{figure}[H]
 		\centering
-		\caption{Small example table.}
-		\label{tab:table}
-		\begin{tabular}{cc}
-			\toprule
-			\textbf{Column 1} & \textbf{Column 2} \\
-			\midrule
-			Data 1 & Data 2 \\
-			Data 3 & Data 4 \\
-			\bottomrule
-		\end{tabular}
-			
-            \tabletext{Note: I'm a table text for additional information.}
-			
-	\end{table}
-		
-\section{Tau packages}
+		\includegraphics[width=0.75\columnwidth]{PCA_df_intervals.pdf}
+		\caption{PCA passant a intervals.}
+		\label{fig:figure7}
+	\end{figure}
 
-    \subsection{Tauenvs}
-	
-        This template has its own environment package \textit{tauenvs.sty} designed to enhance the presentation of the document. Among these custom environments are \textit{tauenv}, \textit{info} and \textit{note}.
-		
-        There are two environments which have a predefined title. These can be included by the command \verb|\begin{note}| and \verb|\begin{info}|. All the environments have the same style.
-			
-        An example using the tau environment is shown below.
-		
-	\begin{tauenv}[frametitle=Environment with custom title]
-            This is an example of the custom title environment. To add a title type \verb|[frametitle=Your title]| next to the beginning of the environment (as shown in this example).
-	\end{tauenv}
-		
-        Tauenv is the only environment that you can customize its title. On the other hand, info and note adapt their title to Spanish automatically when this language package is defined.
-		
-    \subsection{Taubabel}
+    Més endavant també provaré d'agafar les features que tenen més importància dins de cada model.
 
-        In this new version, we have included a package called \textit{taubabel}, which have all the commands that automatically translate from English to Spanish when this language package is defined. 
-        
-        By default, tau displays its content in English. However, at the beginning of the document you will find a recommendation when writing in Spanish. 
-		
-        \textit{Note:} You may modify this package if you want to use other language than English or Spanish. This will make easier to translate the document without having to modify the class document.
-		
-\section{Equation}
+    \section{Mètrica}
+    Com que el meu dataset és molt desbalancejat, hi ha 8264 pacients sans, 667 pacients amb hipotiroidisme i 241 pacients amb hipertiroidisme, la mètrica que utilitzaré serà el f1 score. A més a més, l'average utilitzat és 'macro', d'aquesta manera, totes les classe tenen el mateix pes independenment de la quantitat de mostres que hi hagi de la classe.
+    En alguns llocs, com en el resultat final, també mostraré l'accuracy, tot i que no el tindré tant en compte.
 
-    Equation \ref{ec:equation}, shows the Schrödinger equation as an example. 
-	\begin{equation} \label{ec:equation}
-		\frac{\hbar^2}{2m}\nabla^2\Psi + V(\mathbf{r})\Psi = -i\hbar \frac{\partial\Psi}{\partial t}
-	\end{equation} 
-    The \textit{amssymb} package was not necessary to include, because stix2 font incorporates mathematical symbols for writing quality equations. In case you choose another font, uncomment this package in tau-class/tau.cls/math packages.
-	
-    If you want to change the values that adjust the spacing above and below the equations, play with \verb|\setlength{\eqskip}{8pt}| value until the preferred spacing is set.
-	
-\section{Adding codes}
-	
-    This class\footnote{Hello there! I am a footnote :)} includes the \textit{listings} package, which offers customized features for adding codes in \LaTeX\ documents specifically for C, C++, \LaTeX\ and Matlab. 
-	
-    You can customize the format in tau-class/tau.cls/listings style.
-	
-        \nolinenumbers
-            \lstinputlisting[caption=Example of Matlab code., language=Matlab,label=code]{example.m}
-	\linenumbers
-	
-    If line numbering is defined at the beginning of the document, I recommend placing the command \verb|\nolinenumbers| at the start and \verb|\linenumbers| at the end of the code. 
-	
-    This will temporarily remove line numbering and the code will look better as shown in Code \ref{code}.
-	
-\section{References}
 
-    The default formatting for references follows the IEEE style. You can modify the style of your references, for that, go to tau-class/tau.cls/biblatex. See appendix for more information.
-	
-\section{Appendix}
+    \section{Selecció de model}
+    Models utilitzats:
+    \begin{itemize}
+        \item Logistic regression: És un dels models més senzills, intuïtius i ràpid per a classificació binària.
+        \item SVC: És molt efectiu quan el nombre de dimensions és gran o les classes no són linealment separables.
+        \item KNN: És molt senzill, no requereix entrenament. Classifica segons els veins més propers.
+        \item Decision tree: És un model senzill i de fàcil interpretabilitat.
+        \item Random forest: Tendeix a reduir l'overfitting d'un decision tree.
+        \item Gradient Boosting:
+        \item XGBoost:
+    \end{itemize}
+    He de destacar que tant la regressió logística com el SVC no són capassos de fer una classificació multiclasse. És per això que per aquest dos models he utilitzat un OneVsOne classifier, i per tant tinc 3 classifacadors, i un OneVsRest classifier, que també té 3 classifacadors. La resta tenen la possibilitat de fer la classificació multiclasse sense ajuda.
 
-    \subsection{Alternative title}
+    Primer he fet un avaluació dels models amb els paràmetres per defecte, utilitzant 10 splits independents. Les figures \ref{fig:figure8} i \ref{fig:figure9} mostra els resultats:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\columnwidth]{parametres_per_defecte_df_fillna.png}
+        \caption{Resultats dels models inicialitzats per defecte amb el dataset d'omplir amb -1.}
+        \label{fig:figure8}
+    \end{figure}
+    Com era previsible, tant la regressió com el SVC no han obtingut un resultat massa bo. El SVC el descartaré per la cerca d'hiperparàmetres, ja que és força costós i no ha obtingut un resultat gaire bo. La regressió sí que la deixaré perquè és força simple i no gasta gaire temps.
 
-        You can make the following modification in tau-class/tau.cls/title preferences section to change the position of the title.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\columnwidth]{parametres_per_defecte_df_intervals.png}
+        \caption{Resultats dels models inicialitzats per defecte amb el dataset d'intervals.}
+        \label{fig:figure9}
+    \end{figure}
+    Tot i que aquí el decision tree és el que ha tret millors resultats en mitjana, els altres models no s'han quedat gaire lluny. Els resultats d'aquest dataset són una mica inferiors als millors models de l'altre, així que seguiré provant de les dues maneres.
 
-\nolinenumbers
-\begin{lstlisting}[language=TeX, caption=Alternative title.]
-\newcommand{\titlepos}{\centering}
-\end{lstlisting}
-\linenumbers
+    Com he dit abans tinc moltes variables en el model. Una altra manera de reduir aquest nombre és seleccionar només les més importants. En fer-ho m'ha seleccionat les següents features:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\columnwidth]{selected_features_df_fillna.png}
+        \caption{Variables seleccionades del dataset omplint amb -1.}
+        \label{fig:figure10}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\columnwidth]{selected_features_df_intervals.png}
+        \caption{Variables seleccionades del dataset d'intervals.}
+        \label{fig:figure11}
+    \end{figure}
 
-	This will move the title to the center. 
+    Malauradament tant el knn com el OneVsOne i el OneVsRest no tenen la opció de seleccionar features.
 
-    \subsection{Info environment}
+    Amb aquests models i les variables que han seleccionat cadascun obtenim un resultat lleugerament inferior a fer-ho amb totes. Tot i així faré també la cerca d'hyperparametres.
 
-        An example of the info environment declared in the ‘tauenvs.sty’ package is shown below. Remember that \textit{info} and \textit{note} are the only packages that translate their title (English or Spanish).
-		
-	\begin{info}
-		Small example of info environment.
-	\end{info}
+    A continuació vaig realitzar la cerca d'hiperparàmetres. Per a fer-ho he utilitzat 10 K-folds i la funció GridSearch. La figura \ref{fig:figure12} mostra les mitjanes dels f1 scores que ha obtingut el model amb els millors hyperparàmetres.
 
-    \subsection{Equation skip value}
 
-        With the \verb|\eqskip| command you can change the spacing for equations. The default \textit{eqskip} value is 8pt.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\columnwidth]{millors_hyperparametres.png}
+        \caption{F1 scores dels models amb els millors hyperparàmetres.}
+        \label{fig:figure12}
+    \end{figure}
+    
+    El millor model ha sigut aquest: $RandomForestClassifier(criterion='entropy', max_features=None,
+    min_samples_leaf=2, min_samples_split=10,
+    random_state=20)$, omplint els NaNs amb un -1.
 
-\nolinenumbers
-\begin{lstlisting}[language=TeX, caption=Equation skip code.]
-\newlength{\eqskip}\setlength{\eqskip}{8pt}
-	\expandafter\def\expandafter\normalsize\expandafter{%
-		\normalsize%
-		\setlength\abovedisplayskip{\eqskip}%
-		\setlength\belowdisplayskip{\eqskip}%
-		\setlength\abovedisplayshortskip{\eqskip-\baselineskip}%
-		\setlength\belowdisplayshortskip{\eqskip}%
-	}
-\end{lstlisting}
-\linenumbers
-		
-    \subsection{References}
-		
-        In case you require another reference style, you can go to tau-class/tau.cls/biblatex and modify the following.
-		
-\nolinenumbers
-\begin{lstlisting}[language=TeX, caption=References style.]
-\RequirePackage[
-	backend=biber,
-	style=ieee,
-	sorting=ynt
-]{biblatex}
-\end{lstlisting}
-\linenumbers
+    Ara el podem entrenar amb totes les dades d'entrenament i validació i comprovar la seva eficàcia amb les dades reservades. Resultats:
+    \begin{itemize}
+        \item F1 score: 0.949
+        \item Accuracy: 0.988
+    \end{itemize}
+    I obtenim la matriu de confusió segünet:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\columnwidth]{matriu_confusio_millor_model.png}
+        \caption{Matriu de confusió del millor model.}
+        \label{fig:figure13}
+    \end{figure}
 
-        By default, \textit{tau class} has its own .bib for this example, if you want to name your own bib file, change the \textit{addbibresource}.
-		
-\nolinenumbers
-\begin{lstlisting}[language=TeX]
-\addbibresource{tau.bib}
-\end{lstlisting}
-\linenumbers
-
-\section{Acknowledgements}
-
-Tau \LaTeX template built by Guillermo Jimenez.
-
+    
 %----------------------------------------------------------
 
 \addcontentsline{toc}{section}{References}

@@ -1,0 +1,2 @@
+Classifier,Mean Test Score (F1),Execution Time (s),Best Parameters,Best Estimator
+Decision Tree,0.8650579351266809,9.717432260513306,"{'criterion': 'gini', 'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': 20}",DecisionTreeClassifier(random_state=20)
