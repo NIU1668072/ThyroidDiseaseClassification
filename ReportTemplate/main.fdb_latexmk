@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber main"] 1733857506.17498 "main.bcf" "main.bbl" "main" 1733858929.80626 0
-  "main.bcf" 1733858929 107659 c9ed300a2493b1cd8a1979828842806f "pdflatex"
+["biber main"] 1733857506.17498 "main.bcf" "main.bbl" "main" 1733865841.53915 0
+  "main.bcf" 1733865841 107659 c9ed300a2493b1cd8a1979828842806f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1733858926.64254 "c:/Users/lluis/AprenentatgeComputacional/CasKaggle/ReportTemplate/main.tex" "main.pdf" "main" 1733858929.80692 0
+["pdflatex"] 1733865838.34434 "c:/Users/lluis/AprenentatgeComputacional/CasKaggle/ReportTemplate/main.tex" "main.pdf" "main" 1733865841.53982 0
   "C:/Users/lluis/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1733592814 87410 94338a5c2ef089a5136024104efb3098 ""
   "C:/Users/lluis/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1733591867 24225046 b2af3e1193ba1d53357464ec8dd3f25d ""
   "C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -324,25 +324,25 @@
   "C:/Users/lluis/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
   "C:/Users/lluis/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/lluis/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
-  "c:/Users/lluis/AprenentatgeComputacional/CasKaggle/ReportTemplate/main.tex" 1733858922 19582 12cdcf74cf4c4d3b5fe5bb9887726858 ""
+  "c:/Users/lluis/AprenentatgeComputacional/CasKaggle/ReportTemplate/main.tex" 1733865833 22581 44607b440e72c3393d91e93e4f1c59ce ""
   "figures/PCA_df_fillna.pdf" 1733824036 137563 c9c159aa44d466e58124bb1efcab9fb9 ""
   "figures/PCA_df_intervals.pdf" 1733824093 141427 cbbcf6524ef19c9e371fe16b35e1b4e4 ""
   "figures/correlation_matrix_atributs_df_fillna.pdf" 1733821085 19241 18a0be9fe582d43555d49ccb57171d8a ""
   "figures/correlation_matrix_atributs_df_intervals.pdf" 1733821755 28307 e9b07e4836af37ca49188539bddbafc7 ""
   "figures/correlation_matrix_atributs_no_mesures.png" 1733820559 73004 e5a8028243563e38cdec98828f5af764 ""
   "figures/matriu_confusio_millor_model.png" 1733858730 28376 3fac5033ef2c3d19bc9d4b9d3cbe8cdd ""
-  "figures/millors_hyperparametres.png" 1733857378 60251 d34a3d5f1c8fe0687f79e1e204176e07 ""
+  "figures/millors_hyperparametres.png" 1733862774 60257 8e6ed4c46790ddfaa5db4d56fc2261c0 ""
   "figures/parametres_per_defecte_df_fillna.png" 1733830079 32294 1abed40487a4108ed2bae5610b6568de ""
   "figures/parametres_per_defecte_df_intervals.png" 1733830410 32016 cf95d1760af8266a3cca5dae574ae8cf ""
   "figures/proporcio_referral_source_target.pdf" 1733820960 14782 ab3fc11f5a292ae39a20eee020a652d5 ""
   "figures/relacio_edat_sexe_target.pdf" 1733819610 14955 49898a799b8e6d3d935ab7841088559c ""
   "figures/selected_features_df_fillna.png" 1733856549 70657 bc5444a3a2959feaabe6597aa53d55e4 ""
   "figures/selected_features_df_intervals.png" 1733856801 83074 6e26b1a34475b5807b4b5926c4634587 ""
-  "main.aux" 1733858929 12172 3322e32bf9c3e0f9cefd5582739e5066 "pdflatex"
+  "main.aux" 1733865841 13096 f2faaf84a108ef947bd348d2c27247ae "pdflatex"
   "main.bbl" 1733857511 486 ee04f40f768daeed26442158e95aba61 "biber main"
-  "main.run.xml" 1733858929 2395 335bb0be08f9987edcaa799fcff11cbf "pdflatex"
-  "main.tex" 1733858922 19582 12cdcf74cf4c4d3b5fe5bb9887726858 ""
-  "main.toc" 1733858929 1042 92d2627e19662eef23e4e5b5bf8532b8 "pdflatex"
+  "main.run.xml" 1733865841 2395 335bb0be08f9987edcaa799fcff11cbf "pdflatex"
+  "main.tex" 1733865833 22581 44607b440e72c3393d91e93e4f1c59ce ""
+  "main.toc" 1733865841 1101 4b16a5f6dbc1c1277afaac34e02864f9 "pdflatex"
   "tau-class/tau.cls" 1733589184 14787 51432b0c998a8a72c41055f81c42981a ""
   "tau-class/taubabel.sty" 1733589184 2369 a1bf684fde36e78a6391539fd38a7968 ""
   "tau-class/tauenvs.sty" 1733589184 3183 d5bbfc779d2505e5da39eeff038cc6e0 ""

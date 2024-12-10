@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  10 DEC 2024 20:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.7)  10 DEC 2024 22:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1696,23 +1696,23 @@ Package lettrine.sty Info: Targeted height = 15.846pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 17.02998pt ({\color {taucolor}\bfseries \fontsize {26pt}{28pt}\selectfont {E}});
 (lettrine.sty)             reported on input line 73.
-<figures/correlation_matrix_atributs_no_mesures.png, id=34, 672.8337pt x 589.7232pt>
+<figures/correlation_matrix_atributs_no_mesures.png, id=36, 672.8337pt x 589.7232pt>
 File: figures/correlation_matrix_atributs_no_mesures.png Graphic file (type png)
 <use figures/correlation_matrix_atributs_no_mesures.png>
 Package pdftex.def Info: figures/correlation_matrix_atributs_no_mesures.png  used on input line 95.
 (pdftex.def)             Requested size: 191.76599pt x 168.07285pt.
-<figures/relacio_edat_sexe_target.pdf, id=37, 1156.32pt x 578.16pt>
+<figures/relacio_edat_sexe_target.pdf, id=39, 1156.32pt x 578.16pt>
 File: figures/relacio_edat_sexe_target.pdf Graphic file (type pdf)
 <use figures/relacio_edat_sexe_target.pdf>
 Package pdftex.def Info: figures/relacio_edat_sexe_target.pdf  used on input line 104.
 (pdftex.def)             Requested size: 191.76599pt x 95.87749pt.
-<figures/proporcio_referral_source_target.pdf, id=38, 462.52798pt x 346.89601pt>
+<figures/proporcio_referral_source_target.pdf, id=40, 462.52798pt x 346.89601pt>
 File: figures/proporcio_referral_source_target.pdf Graphic file (type pdf)
 <use figures/proporcio_referral_source_target.pdf>
 Package pdftex.def Info: figures/proporcio_referral_source_target.pdf  used on input line 112.
 (pdftex.def)             Requested size: 191.76599pt x 143.82683pt.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.64998pt on input line 116.
+(Font)              scaled to size 6.64998pt on input line 115.
  [1{C:/Users/lluis/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-t1.enc}
 
 
@@ -1721,88 +1721,88 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
 (Font)              Font shape `T1/phv/b/sl' tried instead on input line 134.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
 (Font)              scaled to size 7.59998pt on input line 134.
-<figures/correlation_matrix_atributs_df_fillna.pdf, id=102, 722.7pt x 578.16pt>
+<figures/correlation_matrix_atributs_df_fillna.pdf, id=104, 722.7pt x 578.16pt>
 File: figures/correlation_matrix_atributs_df_fillna.pdf Graphic file (type pdf)
 <use figures/correlation_matrix_atributs_df_fillna.pdf>
 Package pdftex.def Info: figures/correlation_matrix_atributs_df_fillna.pdf  used on input line 138.
 (pdftex.def)             Requested size: 191.76599pt x 153.41457pt.
-LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line 148.
+LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line 150.
  (C:\Users\lluis\AppData\Local\Programs\MiKTeX\tex/fonts/stix2-type1\ts1stix2.fd
 File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
 )
 Package microtype Info: Character `textflorin ' is missing
 (microtype)             in font `TS1/stix2/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
-<figures/correlation_matrix_atributs_df_intervals.pdf, id=104, 722.7pt x 578.16pt>
+<figures/correlation_matrix_atributs_df_intervals.pdf, id=106, 722.7pt x 578.16pt>
 File: figures/correlation_matrix_atributs_df_intervals.pdf Graphic file (type pdf)
 <use figures/correlation_matrix_atributs_df_intervals.pdf>
-Package pdftex.def Info: figures/correlation_matrix_atributs_df_intervals.pdf  used on input line 163.
+Package pdftex.def Info: figures/correlation_matrix_atributs_df_intervals.pdf  used on input line 165.
 (pdftex.def)             Requested size: 191.76599pt x 153.41457pt.
- [2{C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-ts1.enc} <./figures/proporcio_referral_source_target.pdf> <./figures/correlation_matrix_atributs_df_fillna.pdf> <./figures/correlation_matrix_atributs_df_intervals.pdf>]
-<figures/PCA_df_fillna.pdf, id=250, 578.16pt x 578.16pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2{C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix2-type1/stix2-ts1.enc} <./figures/proporcio_referral_source_target.pdf> <./figures/correlation_matrix_atributs_df_fillna.pdf>]
+<figures/PCA_df_fillna.pdf, id=206, 578.16pt x 578.16pt>
 File: figures/PCA_df_fillna.pdf Graphic file (type pdf)
 <use figures/PCA_df_fillna.pdf>
-Package pdftex.def Info: figures/PCA_df_fillna.pdf  used on input line 193.
+Package pdftex.def Info: figures/PCA_df_fillna.pdf  used on input line 197.
 (pdftex.def)             Requested size: 191.76599pt x 191.76381pt.
-<figures/PCA_df_intervals.pdf, id=251, 578.16pt x 578.16pt>
+<figures/PCA_df_intervals.pdf, id=207, 578.16pt x 578.16pt>
 File: figures/PCA_df_intervals.pdf Graphic file (type pdf)
 <use figures/PCA_df_intervals.pdf>
-Package pdftex.def Info: figures/PCA_df_intervals.pdf  used on input line 198.
+Package pdftex.def Info: figures/PCA_df_intervals.pdf  used on input line 202.
 (pdftex.def)             Requested size: 191.76599pt x 191.76381pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<figures/parametres_per_defecte_df_fillna.png, id=254, 729.927pt x 395.3169pt>
+ [3 <./figures/correlation_matrix_atributs_df_intervals.pdf> <./figures/PCA_df_fillna.pdf> <./figures/PCA_df_intervals.pdf>]
+<figures/parametres_per_defecte_df_fillna.png, id=318, 729.927pt x 395.3169pt>
 File: figures/parametres_per_defecte_df_fillna.png Graphic file (type png)
 <use figures/parametres_per_defecte_df_fillna.png>
-Package pdftex.def Info: figures/parametres_per_defecte_df_fillna.png  used on input line 226.
+Package pdftex.def Info: figures/parametres_per_defecte_df_fillna.png  used on input line 230.
 (pdftex.def)             Requested size: 191.76599pt x 103.85367pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3 <./figures/PCA_df_fillna.pdf> <./figures/PCA_df_intervals.pdf>]
 <figures/parametres_per_defecte_df_intervals.png, id=319, 729.927pt x 395.3169pt>
 File: figures/parametres_per_defecte_df_intervals.png Graphic file (type png)
 <use figures/parametres_per_defecte_df_intervals.png>
-Package pdftex.def Info: figures/parametres_per_defecte_df_intervals.png  used on input line 234.
+Package pdftex.def Info: figures/parametres_per_defecte_df_intervals.png  used on input line 238.
 (pdftex.def)             Requested size: 191.76599pt x 103.85367pt.
 <figures/selected_features_df_fillna.png, id=320, 859.2903pt x 570.933pt>
 File: figures/selected_features_df_fillna.png Graphic file (type png)
 <use figures/selected_features_df_fillna.png>
-Package pdftex.def Info: figures/selected_features_df_fillna.png  used on input line 243.
+Package pdftex.def Info: figures/selected_features_df_fillna.png  used on input line 247.
 (pdftex.def)             Requested size: 191.76599pt x 127.40897pt.
 <figures/selected_features_df_intervals.png, id=321, 859.2903pt x 570.933pt>
 File: figures/selected_features_df_intervals.png Graphic file (type png)
 <use figures/selected_features_df_intervals.png>
-Package pdftex.def Info: figures/selected_features_df_intervals.png  used on input line 249.
+Package pdftex.def Info: figures/selected_features_df_intervals.png  used on input line 253.
 (pdftex.def)             Requested size: 191.76599pt x 127.40897pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 <figures/millors_hyperparametres.png, id=323, 1003.8303pt x 570.933pt>
 File: figures/millors_hyperparametres.png Graphic file (type png)
 <use figures/millors_hyperparametres.png>
-Package pdftex.def Info: figures/millors_hyperparametres.png  used on input line 263.
+Package pdftex.def Info: figures/millors_hyperparametres.png  used on input line 267.
 (pdftex.def)             Requested size: 191.76599pt x 109.06207pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--271
+Underfull \hbox (badness 10000) in paragraph at lines 272--275
 []\T1/stix2/m/n/9 (+20) El mi-llor mo-del ha si-gut aquest:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--271
+Underfull \hbox (badness 10000) in paragraph at lines 272--275
 \LS1/stix2/m/it/9 None; min[]amples[]eaf \LS1/stix2/m/n/9 = 2\LS1/stix2/m/it/9 ; min[]amples[]plit \LS1/stix2/m/n/9 =
  []
 
 <figures/matriu_confusio_millor_model.png, id=324, 448.074pt x 450.2421pt>
 File: figures/matriu_confusio_millor_model.png Graphic file (type png)
 <use figures/matriu_confusio_millor_model.png>
-Package pdftex.def Info: figures/matriu_confusio_millor_model.png  used on input line 280.
+Package pdftex.def Info: figures/matriu_confusio_millor_model.png  used on input line 284.
 (pdftex.def)             Requested size: 153.41435pt x 154.15889pt.
+[4 <./figures/parametres_per_defecte_df_fillna.png> <./figures/parametres_per_defecte_df_intervals.png> <./figures/selected_features_df_fillna.png> <./figures/selected_features_df_intervals.png> <./figures/millors_hyperparametres.png>]
 
-LaTeX Warning: Empty bibliography on input line 289.
+LaTeX Warning: Empty bibliography on input line 308.
 
-[4 <./figures/parametres_per_defecte_df_fillna.png> <./figures/parametres_per_defecte_df_intervals.png> <./figures/selected_features_df_fillna.png> <./figures/selected_features_df_intervals.png> <./figures/millors_hyperparametres.png> <./figures/matriu_confusio_millor_model.png>] 
+[5
+
+ <./figures/matriu_confusio_millor_model.png>] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (main.aux)
  ***********
@@ -1814,17 +1814,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 68401 strings out of 474486
- 1504122 string characters out of 5743755
- 2641822 words of memory out of 5000000
- 89532 multiletter control sequences out of 15000+600000
- 780875 words of font info for 302 fonts, out of 8000000 for 9000
+ 68412 strings out of 474486
+ 1504244 string characters out of 5743755
+ 2641847 words of memory out of 5000000
+ 89535 multiletter control sequences out of 15000+600000
+ 781346 words of font info for 305 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 137i,13n,143p,1107b,1877s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 137i,12n,143p,1107b,1877s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Math.pfb><C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb><C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb><C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb><C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/lluis/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (4 pages, 1362848 bytes).
+Output written on main.pdf (5 pages, 1367522 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
- 94390 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 32 named destinations out of 1000 (max. 500000)
+ 94398 words of extra memory for PDF output out of 106986 (max. 10000000)
 

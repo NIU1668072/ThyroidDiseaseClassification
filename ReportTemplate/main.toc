@@ -11,5 +11,6 @@
 \contentsline {subsection}{\numberline {3.5}PCA}{3}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Mètrica}{3}{section.4}%
 \contentsline {section}{\numberline {5}Selecció de model}{3}{section.5}%
-\contentsline {section}{References}{4}{figure.caption.13}%
 \contentsfinish 
+\contentsline {section}{\numberline {6}Conclusions}{5}{section.6}%
+\contentsline {section}{References}{5}{section.6}%

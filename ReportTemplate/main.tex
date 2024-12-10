@@ -140,6 +140,8 @@
 		\label{fig:figure4}
 	\end{figure}
 
+    Aquí sí que hi ha variables que tenen correlació amb el target, com el TSH, que pot ser útil.
+
     Ara només l'edat pren nombres molt grans en comparació a la resta. Com que només hi ha edats entre 1 i 100 anys, la vaig dividir entre 100 per a tenir-les amb un rang entre 0 i 1 a una escala similar a les altres variables.
 
     \subsubsection{Discretitzar els indicadors}
@@ -164,6 +166,8 @@
 		\caption{Matriu de correlació entre les variables d'intervals.}
 		\label{fig:figure5}
 	\end{figure}
+
+    Aquí també hi ha algunes variables que tenen una forta correlació amb el target.
 
     A partir d'aquí aniré distingint entre les dues opcions d'omplir els NaNs.
 
@@ -210,15 +214,15 @@
     \section{Selecció de model}
     Models utilitzats:
     \begin{itemize}
-        \item Logistic regression: És un dels models més senzills, intuïtius i ràpid per a classificació binària.
-        \item SVC: És molt efectiu quan el nombre de dimensions és gran o les classes no són linealment separables.
-        \item KNN: És molt senzill, no requereix entrenament. Classifica segons els veins més propers.
-        \item Decision tree: És un model senzill i de fàcil interpretabilitat.
-        \item Random forest: Tendeix a reduir l'overfitting d'un decision tree.
-        \item Gradient Boosting:
-        \item XGBoost:
+        \item Logistic regression: Un dels models més senzills, intuïtius i ràpids per a la classificació binària, que es basa en una funció logística per predir la probabilitat d'una classe.
+        \item SVC (Support Vector Classifier): Extremadament efectiu en espais de gran dimensió o quan les classes no són linealment separables, ja que busca el millor marge per separar les classes.
+        \item KNN (K-nearest neighbors): Un mètode senzill que no requereix entrenament previ, i classifica les dades basant-se en la classe dels veïns més propers a un punt donat.
+        \item Decision tree: Un model senzill que divideix iterativament l'espai de característiques en subgrups, sent fàcil d'interpretar i visualitzar.
+        \item Random forest: Un conjunt de decision trees que ajuda a reduir l'overfitting mitjançant la creació de múltiples arbres i la mitjana dels seus resultats, millorant així la robustesa del model.
+        \item Gradient Boosting: Una tècnica d'ensemble que combina diversos models febles per crear un model fort, optimitzant l'error de forma iterativa mitjançant un algorisme de reforç de gradients per millorar les prediccions.
+        \item XGBoost: Una implementació eficient i altament optimitzada del gradient boosting, que inclou tècniques de regularització i altres millores per prevenir l'overfitting i augmentar la precisió del model.
     \end{itemize}
-    He de destacar que tant la regressió logística com el SVC no són capassos de fer una classificació multiclasse. És per això que per aquest dos models he utilitzat un OneVsOne classifier, i per tant tinc 3 classifacadors, i un OneVsRest classifier, que també té 3 classifacadors. La resta tenen la possibilitat de fer la classificació multiclasse sense ajuda.
+    He de destacar que tant la regressió logística com el SVC no són capaços de realitzar una classificació multiclasse de manera directa, ja que estan dissenyats per a problemes de classificació binària. És per això que per aquests dos models dues estratègies: One-vs-One (OVO) i el One-vs-Rest (OVR). L'OVO consisteix a crear un classificadors per a cada parell de classes possibles, de manera que, en el cas de 3 classes, es creen 3 classificadors. En canvi, l'OVR crea un classificador per a cada classe, intentant distingir una classe contra totes les altres, el que també genera 3 classificadors. La resta de models poden gestionar la classificació multiclasse directament sense necessitat d'estratègies addicionals.
 
     Primer he fet un avaluació dels models amb els paràmetres per defecte, utilitzant 10 splits independents. Les figures \ref{fig:figure8} i \ref{fig:figure9} mostra els resultats:
     \begin{figure}[H]
@@ -281,6 +285,21 @@
         \caption{Matriu de confusió del millor model.}
         \label{fig:figure13}
     \end{figure}
+
+    \section{Conclusions}
+    A partir de l'anàlisi i el desenvolupament del model per a la classificació de pacients amb trastorns tiroïdals, es poden extreure les següents conclusions:
+    \begin{itemize}
+        \item Preprocessament de Dades: El tractament de dades mancants va ser crucial per a la creació del model. Les dues tècniques provades per omplir els valors faltants (omplir amb -1 o discretitzar els valors en intervals) van mostrar resultats molt bons. To t i que a mi personalment em semblaria millor la versió dels intervals, ha sigut l'altre la millor.
+        \item Els models més complexos són els que han obtingut millors resultats. Els més simples, la regressió i el SVC, ha tingut problemes, sobretot amb l'estratègia d'omplir amb -1, degut a la seva naturalesa.
+        \item Tot i haver provat diferents estratègies per a reduir el nombre de variables, amb un PCA o triant les més importants, el millor ha sigut treballar amb totes elles.
+    \end{itemize}
+
+    Per aconseguir millora encara una mica més es poden provar diferents coses:
+    \begin{itemize}
+        \item Per a la versió d'omplir els NaNs amb -1 es pot provar d'omplir després d'escalar amb un valor molt gran, com per exemple 100, així el NaN tindria un efecte diferent.
+        \item Per a la versió d'intervals es pot provar de fer-ho amb 6 intervals com he comentat, però els threshold han de tenir una justificació mèdica.
+        \item Provar algun hyperparametre més, sobretot en el random forest i el gradient boosting, que han tret les majors puntuacions.
+    \end{itemize}
 
     
 %----------------------------------------------------------
