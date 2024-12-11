@@ -46,11 +46,13 @@ El projecte està estructurat de la següent manera:
 
 ```
 ThyroidDiseaseClassification/
-├── data/                    # Dades utilitzades en el projecte
-├── execucions/              # Registres i resultats d'execucions
-├── ReportTemplate/          # Plantilla i informe en LaTeX
-├── thyroid.ipynb            # Fitxer principal del codi
-└── requirements.txt         # Llibreries necessàries
+├── data/                          # Dades utilitzades en el projecte
+├── execucions/                    # Registres i resultats d'execucions
+├── ReportTemplate/                # Plantilla i informe en LaTeX
+├── thyroid.ipynb                  # Fitxer principal del codi
+└── requirements.txt               # Llibreries necessàries
+├── main.pdf                       # Informe
+└── Classificació tiroidisme.pdf   # Llibreries necessàries
 ```
 
 ## Requisits
