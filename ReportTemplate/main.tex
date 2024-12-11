@@ -13,7 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[9pt,a4paper,twoside]{tau-class/tau}
-\usepackage[catalan]{babel}
+\usepackage[english]{babel}
 
 %----------------------------------------------------------
 % TITLE
@@ -77,12 +77,12 @@
 \section{Exploratory data analysis}
     Les dades han sigut obtingudes a través del \href{https://www.kaggle.com/datasets/emmanuelfwerr/thyroid-disease-data/data}{kaggle}.
 
-    El dataset conté 9172 observacions i cadascuna té 31 atributs, dels quals n'hi ha 20 que són booleans, 8 que són numèrics i 3 que són categòriques (una és el sexe, que es pot passar a binària facilment). 
+    El dataset conté 9172 observacions i cadascuna té 31 atributs, dels quals n'hi ha 20 que són booleans, 8 que són numèrics i 3 que són categòriques (una és el sexe, que es pot passar a binària fàcilment). 
     
     La variable target és una de les de tipus string. Pot pendre els diferents valors: 
     '-', 'S', 'F', 'AK', 'R', 'I', 'M', 'N', 'G', 'K', 'A', 'KJ', 'L', 'MK', 'Q', 'J','C|I', 'O', 'LJ', 'H|K', 'D', 'GK', 'MI', 'P', 'FK', 'B', 'GI', 'C', 'GKJ', 'OI', 'D|R', 'E'
 
-    La informació del dataset ens indica que si pren $'A', 'B', 'C', 'D'$ el pacient té hipertiroidisme i si pren $'E', 'F', 'G', 'H'$ té hipotiroidisme. Els altres valors indiquen o bé que està sa o bé té diagnosticat altres coses que no tenen a veure amb el tiroidisme. He assignat un 0 si el pacient té hipotiroidisme, un 1 si està sa i un 2 si té hipertiroidisme.
+    La informació del dataset ens indica que si pren $'A', 'B', 'C', 'D'$ el pacient té hipertiroidisme i si pren $'E', 'F', 'G', 'H'$ té hipotiroidisme. Els altres valors indiquen o bé que està sa o bé té diagnosticat altres coses que no tenen a veure amb el tiroidisme. He assignat un 0 si el pacient té hipotiroidisme, un 1 si està sa i un 2 si té hipertiroidisme. Amb aquests canvis tenim 667 mostres amb target 0, 8264 amb un 1 i 241 amb un 2, és a dir, està molt desbalancejat.
     
     Hi ha una variable que és única per pacient i no aporta informació, pacient\_id, que serà eliminada.
 
@@ -97,7 +97,7 @@
 		\label{fig:figure1}
 	\end{figure}
 
-    La figura \ref{fig:figure2} ens mostra com es distribueix els diagnòstic ens funció de l'edat i el sexe. A simple vista no es veu que tingui cap mena de relació.
+    La figura \ref{fig:figure2} ens mostra com es distribueix els diagnòstic ens funció de l'edat (amb certes modeificacions que explicaré a l'apartat 3.1) i el sexe. A simple vista no es veu que tingui cap mena de relació.
 
     \begin{figure}[H]
 		\centering
@@ -120,13 +120,13 @@
 
     A continuació explicaré com he tractat diferents problemes que portaven algunes de les variables.
     \subsection{'age'}
-    D'aquesta en principi sembla tot correcte ja que no hi ha NaNs ni valors negatius, però si mirem les dades que prenen el valor màxim veiem que hi ha quatre mostres que tenen molt més de 100 anys. No sé si és que no se sabia l'edat o un error humà al agafar la dada, així que com que només eren 4 mostres les he eliminat.
+    D'aquesta en principi sembla tot correcte ja que no hi ha NaNs ni valors negatius, però si mirem les dades que prenen el valor màxim veiem que hi ha quatre mostres que tenen molt més de 100 anys. No sé si és que no se sabia l'edat o un error humà al agafar la dada, així que com que només eren 4 mostres les he eliminat. Més endavant li faré algun retoc més.
 
     \subsection{'referral\_source'}
     Aquí més que un problema és que s'ha hagut de passar de categòrica a numèrica. Per a fer-ho he creat tantes variables binàries com opcions n'hi ha, 5. D'aquestes he eliminat la que menys n'hi ha, 'WEST', ja que la informació es pot obtenir de les altres variables.
 
     \subsection{'sex'}
-    Aquí sí que hi ha un problema: els NaNs. La variable té un 3,3\% de NaNs. Només hi ha una manera que ens permeti omplir algunes files: mirar si el pacient està embarassat. Malauradament això només omple 4 files. Com que és només un 3\% i la distribució no s'altera notablement, he decidit eliminar les files.
+    Aquí sí que hi ha un problema: els NaNs. La variable té un 3,3\% de NaNs. Només hi ha una manera que ens permeti omplir algunes files: mirar si el pacient està embarassat. Malauradament això només omple 4 files. Com que és només un 3\% i la distribució no s'altera notablement, he decidit eliminar les files. Ara tenim 7998 amb target 1, 642 amb 0 i 225 amb 2
 
     \subsection{Nivells hormonals}
     Com he comentat anteriorment, per a cada indicador hi ha dues variables: una que indica si s'ha mesurat o no i l'altres que dona la mesura si l'altre és positiva o té un NaN si l'altre és negativa. No hi ha cap NaN que en files on sí que s'hagi mesurat, per això he eliminat les columnes que indiquen si s'ha mesurat o no. Com que si mirem totes les files que tenen un NaN en alguna de les sis columnes em quedaria sense dades, no les puc eliminar, les he d'omplir. Ho he provat de dues maneres diferents.
@@ -169,7 +169,7 @@
 
     Aquí també hi ha algunes variables que tenen una forta correlació amb el target.
 
-    A partir d'aquí aniré distingint entre les dues opcions d'omplir els NaNs.
+    A partir d'aquí aniré distingint entre les dues opcions d'omplir els NaNs (en la notebook primer es fa l'estudi de les dades omplint NaNs i després l'estudi de la versió d'intervals).
 
     Com que ja he acabat amb el tractament de les variables, a partir d'ara separaré un 10\% de les dades per a fer el test final. L'altre 90\% em servirà per a fer els entrenaments i les cerques d'hiperparàmetres.
 
@@ -269,6 +269,8 @@
         \label{fig:figure12}
     \end{figure}
     
+    \section{Resultats}
+
     El millor model ha sigut aquest: $RandomForestClassifier(criterion='entropy', max_features=None,
     min_samples_leaf=2, min_samples_split=10,
     random_state=20)$, omplint els NaNs amb un -1.
@@ -281,10 +283,28 @@
     I obtenim la matriu de confusió segünet:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\columnwidth]{matriu_confusio_millor_model.png}
+        \includegraphics[width=0.6\columnwidth]{confusion_matrix_best_model.png}
         \caption{Matriu de confusió del millor model.}
         \label{fig:figure13}
     \end{figure}
+    Per la matriu podem veure que el model prediu força bé i per això ha obtingut un f1 score tant alt. Vull destacar dues coses: la primera és que el model no s'equivoca entre hipertiroidisme i hipotiroidisme, i la segona és que prediu millor l'hipotiroidisme que l'hipertiroidisme, probablement perquè la segona és minoritària.
+    Si mirem el classification report ens indica el següent:
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lcccc}
+        \toprule
+         \textbf{Classe} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+        \midrule
+        \textbf{Hipotiroidisme} & 0.99 & 0.96 & 0.97 & 75 \\
+        \textbf{Sa} & 0.99 & 0.99 & 0.99 & 793 \\
+        \textbf{Hipertiroidisme} & 0.82 & 0.95 & 0.88 & 19 \\
+        \bottomrule
+        \end{tabular}
+        \caption{classification report.}
+        \label{tab:classification_results}
+    \end{table}
+        
+
 
     \section{Conclusions}
     A partir de l'anàlisi i el desenvolupament del model per a la classificació de pacients amb trastorns tiroïdals, es poden extreure les següents conclusions:
@@ -298,15 +318,41 @@
     \begin{itemize}
         \item Per a la versió d'omplir els NaNs amb -1 es pot provar d'omplir després d'escalar amb un valor molt gran, com per exemple 100, així el NaN tindria un efecte diferent.
         \item Per a la versió d'intervals es pot provar de fer-ho amb 6 intervals com he comentat, però els threshold han de tenir una justificació mèdica.
+        \item També es podria establir uns llindars en funció de l'edat
         \item Provar algun hyperparametre més, sobretot en el random forest i el gradient boosting, que han tret les majors puntuacions.
     \end{itemize}
 
-    
-%----------------------------------------------------------
+    \begin{thebibliography}{9}
 
-\addcontentsline{toc}{section}{References}
-\printbibliography
+        \bibitem{vaswani_attention_2017}
+        Emmanuel Fwerr,
+        \textit{Thyroid Disease Data},
+        Kaggle, 2017.
+        Disponible a: \url{https://www.kaggle.com/datasets/emmanuelfwerr/thyroid-disease-data}
+        
+        \bibitem{PFGPlots}
+        Cigna Health,
+        \textit{Pruebas de hormona tiroidea},
+        Cigna Knowledge Center, 2024.
+        Disponible a: \url{https://www.cigna.com/es-us/knowledge-center/hw/pruebas-mdicas/pruebas-de-hormona-tiroidea-hw27377}
 
-%----------------------------------------------------------
+        \bibitem{cun_tiroidea_es}
+        Clínica Universidad de Navarra,
+        \textit{Pruebas de función tiroidea},
+        Disponible a: \url{https://www.cun.es/enfermedades-tratamientos/pruebas-diagnosticas/funcion-tiroidea}
+
+        \bibitem{cun_tiroidea_en}
+        Clínica Universidad de Navarra,
+        \textit{Thyroid Function Tests},
+        Disponible a: \url{https://www.cun.es/en/diseases-treatments/diagnosis-procedures/function-thyroid}
+
+        \bibitem{medlineplus}
+        MedlinePlus,
+        \textit{Thyroid Function Tests},
+        Disponible a: \url{https://medlineplus.gov/ency/article/003374.htm}
+
+    \end{thebibliography}
+
+
 
 \end{document}
