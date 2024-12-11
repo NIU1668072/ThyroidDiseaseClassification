@@ -1,17 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% --------------------------------------------------------
-% Tau
-% LaTeX Template
-% Version 2.4.3 (01/09/2024)
-%
-% Author: 
-% Guillermo Jimenez (memo.notess1@gmail.com)
-% 
-% License:
-% Creative Commons CC BY 4.0
-% --------------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[9pt,a4paper,twoside]{tau-class/tau}
 \usepackage[english]{babel}
 
@@ -51,11 +37,6 @@
 	%% TODO: Change this default abstract into something nice that describes your work.
 	%% Keep it below 300 words.
     Aquest treball es centra en el desenvolupament d'un model d'aprenentatge computacional per a la classificació multiclasse de pacients amb trastorns tiroïdals. L'objectiu principal és predir l'estat de salut d'un pacient en tres categories: sa, amb hipotiroidisme o amb hipertiroidisme, a partir de característiques clíniques i analítiques disponibles. S'analitza diferents maneres de tractar la falta de dades en alguns pacients. El model es basa en tècniques d'aprenentatge supervisat, utilitzant un conjunt de dades amb múltiples variables, com resultats de proves hormonals. S'ha aplicat un conjunt de mètodes de classificació, com Decision Trees o Random Forest, avaluant el rendiment mitjançant la mètrica del f1score. Els resultats obtinguts mostren que el model és capaç de distingir de manera efectiva entre les diferents classes, proporcionant una eina útil per al diagnòstic precoç i la monitorització dels trastorns tiroïdals. \end{abstract}
-
-%----------------------------------------------------------
-
-%% TODO: Set appropriate keywords for your report.
-\keywords{a, b, c, d}
 
 %----------------------------------------------------------
 
@@ -174,8 +155,7 @@
     Com que ja he acabat amb el tractament de les variables, a partir d'ara separaré un 10\% de les dades per a fer el test final. L'altre 90\% em servirà per a fer els entrenaments i les cerques d'hiperparàmetres.
 
     \subsection{PCA}
-    En aquest punt em va sorgir el dubte de si tenia moltes variables, i si això em podria causar overfitting. Per això vaig provar de fer una primera validació creuada i vaig fer un entrenament amb un gradient boosting amb els paràmetres per defecte. Els resultats donen una aproximació del resultat real, és a dir, pot ser que aquest split sigui molt bo i els resultats siguin una mica superiors, però també pot ser dolent i donar ser una mica inferior.
-    La metrica està explicada més endavant. Vaig obtenir el següent:
+    En aquest punt em va sorgir el dubte de si tenia moltes variables, i si això em podria causar overfitting. Per això vaig provar de fer una primera validació creuada i vaig fer un entrenament amb un gradient boosting amb els paràmetres per defecte fent 5 splits. Vaig obtenir el següent:
     \begin{itemize}
         \item Omplir amb -1
         \item \begin{itemize}
