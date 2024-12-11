@@ -34,11 +34,11 @@ Es van entrenar i avaluar diversos models d'aprenentatge supervisat, incloent:
 
 ## Mètriques d'avaluació
 
-A causa del desequilibri en les classes del dataset, s'ha utilitzat el **F1-score macro** com a mètrica principal d'avaluació. A més, es proporciona l'accuracy per complementar l'anàlisi.
+A causa del desequilibri en les classes del dataset, s'ha utilitzat el **F1-score macro** com a mètrica principal d'avaluació. 
 
 ## Resultats
 
-Els resultats mostren que els mètodes basats en ensemble, com Random Forest i Gradient Boosting, tenen un rendiment superior en termes de precisió i capacitat de generalització.
+Després d'un primer entrenament i una cerca d'hiperparàmetres s'ha arribat al 0.949 de f1 score
 
 ## Organització del projecte
 
